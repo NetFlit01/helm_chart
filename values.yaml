@@ -1,0 +1,8 @@
+# Default values for my Helm Chart
+
+image: fedotovnd/neoflex:v1
+replicaCount: 2
+service:
+  type: NodePort
+container:
+  port: 8080

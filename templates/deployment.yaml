@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-deployment
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: main
+        image: {{ .Values.image }}
+        ports:
+        - containerPort: {{ .Values.container.port  }}
+        livenessProbe:
+          httpGet:
+            path: /demo/
+            port: {{ .Values.container.port  }}
+          initialDelaySeconds: 1
+          periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /demo/
+            port: {{ .Values.container.port  }}
+          initialDelaySeconds: 1
+          periodSeconds: 5
+
