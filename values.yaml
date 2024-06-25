@@ -1,7 +1,7 @@
 # Default values for my Helm Chart
 
 image: fedotovnd/neoflex:v1
-replicaCount: 2
+replicaCount: 5
 service:
   type: NodePort
 container:
