@@ -6,3 +6,4 @@ service:
   type: NodePort
 container:
   port: 8080
+secret: regred
