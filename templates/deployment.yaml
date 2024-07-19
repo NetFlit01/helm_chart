@@ -12,6 +12,8 @@ spec:
       labels:
         app: web
     spec:
+      imagePullSecrets:
+        - name: {{ .Values.secret }}
       containers:
       - name: main
         image: {{ .Values.image }}
